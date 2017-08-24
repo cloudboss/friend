@@ -61,7 +61,8 @@ def retry_ex(callback, times=3, cap=120000):
     :keyword int times: Number of times to retry on initial failure
     :keyword int cap: Maximum wait time in milliseconds
     :returns: The return value of the callback
-    :raises Exception: If the callback raises an exception
+    :raises Exception: If the callback raises an exception after
+      exhausting all retries
     """
     for attempt in range(times + 1):
         if attempt > 0:
