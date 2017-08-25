@@ -384,8 +384,10 @@ def format_obj_keys(obj, formatter):
 def _camel_to_thing(stringue, delim):
     def case(s):
         return s.lower()
+
     def split(s):
         return re.split('([A-Z])', s)
+
     def joinexpr(s):
         return delim + s.lower() if s in string.uppercase else s.lower()
     return _thing_to_thing(stringue, case, split, joinexpr)
@@ -406,6 +408,7 @@ def _thing_to_pascal(stringue, delim):
 def _thing_to_camelish(stringue, delim, case):
     def split(s):
         return s.split(delim)
+
     def joinexpr(s):
         return s[0].upper() + s[1:]
     return _thing_to_thing(stringue, case, split, joinexpr)
