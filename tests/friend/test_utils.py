@@ -160,52 +160,6 @@ class UtilsTests(unittest.TestCase):
             wont_recover()
         self.assertEqual(state[0], retry_times+1)
 
-    def test_select(self):
-        dicts = [
-            {'a': 'A', 'b': 'B', 'c': 'C'},
-            {'one': 'won'},
-            {'one': 1, 'two': 2},
-        ]
-        expectations = (
-            (
-                'one',
-                'won',
-                [{'one': 'won'}]
-            ),
-            (
-                'one',
-                ('won', 1),
-                [{'one': 'won'}, {'one': 1, 'two': 2}]
-            ),
-            (
-                'one',
-                (2, 'won'),
-                [{'one': 'won'}]
-            ),
-            (
-                2,
-                0,
-                []
-            ),
-            (
-                'a',
-                'B',
-                []
-            ),
-            (
-                'a',
-                'A',
-                [{'a': 'A', 'b': 'B', 'c': 'C'}]
-            ),
-            (
-                0,
-                (),
-                []
-            )
-        )
-        for key, value, d in expectations:
-            self.assertEquals(utils.select(dicts, key, value), d)
-
     def test_ensure_environment(self):
         expectations = (
             (

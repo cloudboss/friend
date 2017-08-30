@@ -1,6 +1,14 @@
 friend package
 ==============
 
+friend\.collections module
+----------------------
+
+.. automodule:: friend.collections
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 friend\.strings module
 ----------------------
 
