@@ -26,6 +26,9 @@ config = {
     'download_url': url,
     'author_email': 'joseph@cloudboss.co',
     'version': version,
+    'install_requires': [
+        'ipaddress',
+    ],
     'packages': ['friend'],
     'name': 'friend',
     'test_suite': 'tests',

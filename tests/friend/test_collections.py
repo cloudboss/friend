@@ -3,8 +3,7 @@ import unittest
 from friend import collections
 
 
-class CollectionssTests(unittest.TestCase):
-
+class CollectionsTests(unittest.TestCase):
     def test_select_dict(self):
         dicts = [
             {'a': 'A', 'b': 'B', 'c': 'C'},
