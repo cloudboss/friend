@@ -5,22 +5,15 @@ try:
 except ImportError:
     from distutils.core import setup
 
-
-def readme():
-    try:
-        import pypandoc
-        return pypandoc.convert(source='README.md', to='rst')
-    except:
-        with open('README.md') as f:
-            return f.read()
-
+with open('README.rst') as f:
+    readme = f.read()
 
 version = friend.__version__
 url = 'https://github.com/cloudboss/friend/releases/{}'.format(version)
 
 config = {
     'description': 'Python utility library',
-    'long_description': readme(),
+    'long_description': readme,
     'author': 'Joseph Wright',
     'url': 'https://github.com/cloudboss/friend',
     'download_url': url,
