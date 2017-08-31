@@ -1,6 +1,9 @@
 Friend
 ======
 
+.. image:: https://travis-ci.org/cloudboss/friend.svg?branch=master
+    :target: https://travis-ci.org/cloudboss/friend
+
 What is Friend?
 ---------------
 
