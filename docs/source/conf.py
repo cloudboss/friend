@@ -18,9 +18,8 @@
 #
 import os
 import sys
+from pkg_resources import get_distribution
 sys.path.insert(0, os.path.abspath('../..'))
-
-import friend
 
 # -- General configuration ------------------------------------------------
 
@@ -62,7 +61,7 @@ author = u'Joseph Wright'
 # built documents.
 #
 # The short X.Y version.
-version = friend.__version__
+version = get_distribution('friend').version
 # The full version, including alpha/beta/rc tags.
 release = version
 
