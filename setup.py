@@ -17,27 +17,20 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-import friend
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 with open('README.rst') as f:
     readme = f.read()
-
-version = friend.__version__
-url = 'https://github.com/cloudboss/friend/releases/{}'.format(version)
 
 config = {
     'description': 'Python utility library',
     'long_description': readme,
     'author': 'Joseph Wright',
     'url': 'https://github.com/cloudboss/friend',
-    'download_url': url,
+    'download_url': 'https://pypi.python.org/pypi/friend',
     'author_email': 'joseph@cloudboss.co',
-    'version': version,
+    'use_scm_version': True,
+    'setup_requires': ['setuptools_scm'],
     'install_requires': [
         'ipaddress',
     ],
