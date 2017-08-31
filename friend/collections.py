@@ -42,17 +42,15 @@ def select_dict(coll, key, value):
 
     ::
 
-      dicts = [
-          {'hi': 'bye'},
-          {10: 2, 30: 4},
-          {'hi': 'hello', 'bye': 'goodbye'},
-      ]
-
-      matches = select(dicts, 'hi', 'bye')
-      # Returns [{'hi': 'bye'}]
-
-      matches = select(dicts, 'hi', ('bye', 'hello'))
-      # Returns [{'hi': 'bye'}, {'hi': 'hello', 'bye': 'goodbye'}]
+      >>> dicts = [
+      ...    {'hi': 'bye'},
+      ...    {10: 2, 30: 4},
+      ...    {'hi': 'hello', 'bye': 'goodbye'},
+      ... ]
+      >>> select(dicts, 'hi', 'bye')
+      [{'hi': 'bye'}]
+      >>> select(dicts, 'hi', ('bye', 'hello'))
+      [{'hi': 'bye'}, {'hi': 'hello', 'bye': 'goodbye'}]
     """
     if getattr(value, '__iter__', None):
         iterable = value
