@@ -47,9 +47,9 @@ def select_dict(coll, key, value):
       ...    {10: 2, 30: 4},
       ...    {'hi': 'hello', 'bye': 'goodbye'},
       ... ]
-      >>> select(dicts, 'hi', 'bye')
+      >>> select_dict(dicts, 'hi', 'bye')
       [{'hi': 'bye'}]
-      >>> select(dicts, 'hi', ('bye', 'hello'))
+      >>> select_dict(dicts, 'hi', ('bye', 'hello'))
       [{'hi': 'bye'}, {'hi': 'hello', 'bye': 'goodbye'}]
     """
     if getattr(value, '__iter__', None):
