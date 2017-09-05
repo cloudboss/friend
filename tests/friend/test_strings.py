@@ -18,17 +18,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 import random
+import string
 import unittest
 
 from friend import strings
 
 
 class StringsTests(unittest.TestCase):
-    def test_random_alphanum(self):
+    def test_random_string(self):
+        charset = string.ascii_letters
         for _ in range(100):
             length = random.randint(25, 100)
-            v1 = strings.random_alphanum(length)
-            v2 = strings.random_alphanum(length)
+            v1 = strings.random_string(length, charset)
+            v2 = strings.random_string(length, charset)
             self.assertNotEqual(v1, v2)
             self.assertEqual(len(v1), length)
 
