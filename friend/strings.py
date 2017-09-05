@@ -27,6 +27,20 @@ import re
 import string
 
 
+def random_string(length, charset):
+    """
+    Return a random string of the given length from the
+    given character set.
+
+    :param int length: The length of string to return
+    :param str charset: A string of characters to choose from
+    :returns: A random string
+    :rtype: str
+    """
+    n = len(charset)
+    return ''.join(charset[random.randrange(n)] for _ in range(length))
+
+
 def random_alphanum(length):
     """
     Return a random string of ASCII letters and digits.
@@ -36,8 +50,19 @@ def random_alphanum(length):
     :rtype: str
     """
     charset = string.ascii_letters + string.digits
-    n = len(charset)
-    return ''.join(charset[random.randrange(n)] for _ in range(length))
+    return random_string(length, charset)
+
+
+def random_hex(length):
+    """
+    Return a random hex string.
+
+    :param int length: The length of string to return
+    :returns: A random string
+    :rtype: str
+    """
+    charset = ''.join(set(string.hexdigits.lower()))
+    return random_string(length, charset)
 
 
 def snake_to_camel(stringue):
