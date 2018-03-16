@@ -30,7 +30,11 @@ def random_ipv4(cidr='10.0.0.0/8'):
     :returns: An IPv4 address from the given CIDR block
     :rtype: ipaddress.IPv4Address
     """
-    network = ipaddress.ip_network(unicode(cidr))
+    try:
+        u_cidr = unicode(cidr)
+    except NameError:
+        u_cidr = cidr
+    network = ipaddress.ip_network(u_cidr)
     start = int(network.network_address) + 1
     end = int(network.broadcast_address)
     randint = random.randrange(start, end)

@@ -19,6 +19,8 @@
 # THE SOFTWARE.
 from setuptools import setup
 
+import six
+
 with open('README.rst') as f:
     readme = f.read()
 
@@ -31,12 +33,14 @@ config = {
     'author_email': 'joseph@cloudboss.co',
     'use_scm_version': True,
     'setup_requires': ['setuptools_scm'],
-    'install_requires': [
-        'ipaddress',
-    ],
     'packages': ['friend'],
     'name': 'friend',
     'test_suite': 'tests',
 }
+
+if six.PY2:
+    config['install_requires'] = [
+        'ipaddress',
+    ]
 
 setup(**config)

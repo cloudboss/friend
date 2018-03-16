@@ -1,2 +1,2 @@
-ipaddress~=1.0
+ipaddress==1.0.19; python_version < '3.0'
 setuptools-scm==1.15.6
