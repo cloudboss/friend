@@ -27,7 +27,7 @@ class CollectionsTests(unittest.TestCase):
         dicts = [
             {'a': 'A', 'b': 'B', 'c': 'C'},
             {'one': 'won'},
-            {'one': 1, 'two': 2},
+            {'one': '1', 'two': '2'},
         ]
         expectations = (
             (
@@ -37,8 +37,8 @@ class CollectionsTests(unittest.TestCase):
             ),
             (
                 'one',
-                ('won', 1),
-                [{'one': 'won'}, {'one': 1, 'two': 2}]
+                ('won', '1'),
+                [{'one': 'won'}, {'one': '1', 'two': '2'}]
             ),
             (
                 'one',
