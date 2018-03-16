@@ -1,4 +1,4 @@
-# Copyright 2017 Joseph Wright <joseph@cloudboss.co>
+# Copyright 2018 Joseph Wright <joseph@cloudboss.co>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ class CollectionsTests(unittest.TestCase):
         dicts = [
             {'a': 'A', 'b': 'B', 'c': 'C'},
             {'one': 'won'},
-            {'one': 1, 'two': 2},
+            {'one': '1', 'two': '2'},
         ]
         expectations = (
             (
@@ -37,8 +37,8 @@ class CollectionsTests(unittest.TestCase):
             ),
             (
                 'one',
-                ('won', 1),
-                [{'one': 'won'}, {'one': 1, 'two': 2}]
+                ('won', '1'),
+                [{'one': 'won'}, {'one': '1', 'two': '2'}]
             ),
             (
                 'one',
@@ -67,4 +67,4 @@ class CollectionsTests(unittest.TestCase):
             )
         )
         for key, value, d in expectations:
-            self.assertEquals(collections.select_dict(dicts, key, value), d)
+            self.assertEqual(collections.select_dict(dicts, key, value), d)

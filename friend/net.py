@@ -1,4 +1,4 @@
-# Copyright 2017 Joseph Wright <joseph@cloudboss.co>
+# Copyright 2018 Joseph Wright <joseph@cloudboss.co>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,11 @@ def random_ipv4(cidr='10.0.0.0/8'):
     :returns: An IPv4 address from the given CIDR block
     :rtype: ipaddress.IPv4Address
     """
-    network = ipaddress.ip_network(unicode(cidr))
+    try:
+        u_cidr = unicode(cidr)
+    except NameError:
+        u_cidr = cidr
+    network = ipaddress.ip_network(u_cidr)
     start = int(network.network_address) + 1
     end = int(network.broadcast_address)
     randint = random.randrange(start, end)

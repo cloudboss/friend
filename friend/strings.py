@@ -1,4 +1,4 @@
-# Copyright 2017 Joseph Wright <joseph@cloudboss.co>
+# Copyright 2018 Joseph Wright <joseph@cloudboss.co>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,14 @@ Utility functions related to strings.
 import random
 import re
 import string
+
+import six
+
+
+if six.PY2:
+    uppercase = string.uppercase
+else:
+    uppercase = string.ascii_uppercase
 
 
 def random_string(length, charset):
@@ -434,7 +442,7 @@ def _camel_to_thing(stringue, delim):
         return re.split('([A-Z])', s)
 
     def joinexpr(s):
-        return delim + s.lower() if s in string.uppercase else s.lower()
+        return delim + s.lower() if s in uppercase else s.lower()
     return _thing_to_thing(stringue, case, split, joinexpr)
 
 
