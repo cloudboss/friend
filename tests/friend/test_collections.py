@@ -67,4 +67,4 @@ class CollectionsTests(unittest.TestCase):
             )
         )
         for key, value, d in expectations:
-            self.assertEquals(collections.select_dict(dicts, key, value), d)
+            self.assertEqual(collections.select_dict(dicts, key, value), d)
