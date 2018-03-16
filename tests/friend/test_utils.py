@@ -121,7 +121,7 @@ class UtilsTests(unittest.TestCase):
 
         with self.assertRaises(RuntimeError) as r:
             utils.retry_ex(wont_recover, times=count-1)
-        self.assertEqual(r.exception.message, message)
+        self.assertEqual(str(r.exception), message)
         self.assertEqual(state[0], count)
 
     def test_retry_bool_no_recover(self):
@@ -235,5 +235,5 @@ class UtilsTests(unittest.TestCase):
                     variables = ', '.join(missing)
                     message = 'Environment variables not set: {}'.format(
                         variables)
-                    self.assertEqual(r.exception.message, message)
+                    self.assertEqual(str(r.exception), message)
                     self.assertEqual(r.exception.variables, missing)
